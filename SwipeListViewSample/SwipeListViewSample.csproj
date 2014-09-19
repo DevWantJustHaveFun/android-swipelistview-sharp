@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -76,7 +76,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
-    <AndroidAsset Include="Assets\images\dogs\.DS_Store" />
     <AndroidAsset Include="Assets\images\dogs\alaskan_malamute.jpg" />
     <AndroidAsset Include="Assets\images\dogs\australian_cattle_dog.jpg" />
     <AndroidAsset Include="Assets\images\dogs\canaan_dog.jpg" />
@@ -95,18 +94,16 @@
     <AndroidAsset Include="Assets\images\dogs\weimaraner.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="xamandroidsupportv4-18">
-      <Version>19.1.0</Version>
-      <Visible>False</Visible>
-    </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SwipeListView\FortySevenDeg.SwipeListView.csproj">
       <Project>{252BC5DF-CB5E-4B68-B5E6-2FA96004E54C}</Project>
       <Name>FortySevenDeg.SwipeListView</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\images\dogs\" />
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Visible>False</Visible>
+      <Version>20.0.0.4</Version>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>

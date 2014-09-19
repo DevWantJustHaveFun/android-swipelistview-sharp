@@ -31,10 +31,10 @@ namespace FortySevenDeg.SwipeListView
 {
 	public class SwipeListView : ListView
 	{
-        /* const */
-        public const float DefaultSwipOffset = 2;
+		/* const */
+		public const float DefaultSwipOffset = 2;
 
-        /* enum */
+		/* enum */
 		public enum SwipeAction
 		{
 			None = 0,
@@ -59,17 +59,17 @@ namespace FortySevenDeg.SwipeListView
 			ScrollingY = 2
 		}
 
-        /**
+		/**
 		 * Default ids for front view
 		 */
-        public static String SwipeDefaultFrontView = "swipelist_frontview";
-        /**
+		public static String SwipeDefaultFrontView = "swipelist_frontview";
+		/**
 		 * Default ids for back view
 		 */
 
 		public static String SwipeDefaultBackView = "swipelist_backview";
 
-        /* private */
+		/* private */
 		private int _swipeBackView;
 		private int _swipeFrontView;
 		private SwipeListViewTouchListener _touchListener;
@@ -77,7 +77,7 @@ namespace FortySevenDeg.SwipeListView
 		private float _lastMotionY;
 		private int _touchSlop;
 		private TouchState _touchState = TouchState.Rest;
-       
+	   
 		public SwipeListView(Context context, IAttributeSet attrs) : base(context, attrs)
 		{
 			Init(attrs);
@@ -102,7 +102,7 @@ namespace FortySevenDeg.SwipeListView
 			bool swipeCloseAllItemsWhenMoveList = true;
 			int swipeDrawableChecked = 0;
 			int swipeDrawableUnchecked = 0;
-            float swipeOffset = DefaultSwipOffset;
+			float swipeOffset = DefaultSwipOffset;
 			var swipeActionLeft = (int) SwipeAction.Reveal;
 			var swipeActionRight = (int) SwipeAction.Reveal;
 
@@ -112,7 +112,7 @@ namespace FortySevenDeg.SwipeListView
 				swipeMode = styled.GetInt(Resource.Styleable.SwipeListView_swipeMode, ((int) SwipeMode.Both));
 				swipeActionLeft = styled.GetInt(Resource.Styleable.SwipeListView_swipeActionLeft, (int) SwipeAction.Reveal);
 				swipeActionRight = styled.GetInt(Resource.Styleable.SwipeListView_swipeActionRight, (int) SwipeAction.Reveal);
-                swipeOffset = styled.GetFloat(Resource.Styleable.SwipeListView_swipeOffset, swipeOffset);
+				swipeOffset = styled.GetFloat(Resource.Styleable.SwipeListView_swipeOffset, swipeOffset);
 				swipeOffsetLeft = styled.GetDimension(Resource.Styleable.SwipeListView_swipeOffsetLeft, 0);
 				swipeOffsetRight = styled.GetDimension(Resource.Styleable.SwipeListView_swipeOffsetRight, 0);
 				swipeOpenOnLongPress = styled.GetBoolean(Resource.Styleable.SwipeListView_swipeOpenOnLongPress, swipeOpenOnLongPress);
@@ -148,7 +148,7 @@ namespace FortySevenDeg.SwipeListView
 			}
 			_touchListener.RightOffset = swipeOffsetRight;
 			_touchListener.LeftOffset = swipeOffsetLeft;
-            _touchListener.SwipeOffset = swipeOffset;
+			_touchListener.SwipeOffset = swipeOffset;
 			_touchListener.SwipeActionLeft = swipeActionLeft;
 			_touchListener.SwipeActionRight = swipeActionRight;
 			_touchListener.SwipeMode = swipeMode;
@@ -338,8 +338,8 @@ namespace FortySevenDeg.SwipeListView
 			var xDiff = (int) Math.Abs(x - _lastMotionX);
 			var yDiff = (int) Math.Abs(y - _lastMotionY);
 
-            bool xMoved = xDiff > _touchSlop;
-            bool yMoved = yDiff > _touchSlop;
+			bool xMoved = xDiff > _touchSlop;
+			bool yMoved = yDiff > _touchSlop;
 
 			if (xMoved)
 			{
@@ -636,14 +636,14 @@ namespace FortySevenDeg.SwipeListView
 				{
 					var observer = new ObjectDataSetObserver
 					{
-					    Changed = () =>
-					    {
-					        OnListChanged();
-					        _touchListener.ResetItems();
-					    }
+						Changed = () =>
+						{
+							OnListChanged();
+							_touchListener.ResetItems();
+						}
 					};
 
-				    base.Adapter.RegisterDataSetObserver(observer);
+					base.Adapter.RegisterDataSetObserver(observer);
 				}
 			}
 		}

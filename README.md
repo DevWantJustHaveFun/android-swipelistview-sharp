@@ -6,6 +6,31 @@ This is a C# port of the [47 Degrees Swipe List View](https://github.com/47deg/a
 The Swipe List View is an Android List View implementation with support for drawable cells and many other swipe related features. This control simplifies the building of lists in Android that support swipe gestures on the list items. Swipe Modes:
 * Left* Right* Both* NoneSwipe Actions:
 * Reveal - Swipe to reveal a view behind the list item* Dismiss - Swipe to remove a list item from the list* Choice - Swipe with a rubber band-like behavior that toggles the selected state of the list item
+
+Some improvements to this component :
+
+- Add Events Management for a simplest use 
+
+Example :
+```xml
+            var refreshlayout = view.FindViewById<SwipeRefreshLayout>(Resource.Id.refresh_layout);
+
+            var listView = (SwipeListView) view.FindViewById(Resource.Id.listview);
+
+            // subscribe listview events
+            listView.OnOpenedEvent += (sender, args) => { refreshlayout.Enabled = false; };
+            listView.OnClosedEvent += (sender, args) => { refreshlayout.Enabled = true; };
+            listView.OnListChangedEvent += (sender, args) => { refreshlayout.Enabled = true; };
+            listView.OnMoveEvent += (sender, args) => { refreshlayout.Enabled = false; };
+            listView.OnStartOpenEvent += (sender, args) => { refreshlayout.Enabled = false; };
+            listView.OnStartCloseEvent += (sender, args) => { refreshlayout.Enabled = true; };
+            listView.OnDismissEvent += (sender, args) => { refreshlayout.Enabled = true; };
+```
+
+- Add compatibilty with SwipeRefreshLayout
+- Add compatibilty with MvvmCross.DeapExtensions.BindableGroupListView And MvvmCross.MvxListView
+- Update xamandroidsupportv4-18
+- Fix typo
 #Minimum SDK Version
 API 12 *(Android 3.1)*
 
@@ -30,6 +55,7 @@ If you decide to use SwipeListView as a view, you can define it in your xml layo
             swipe:swipeAnimationTime="[milliseconds]"
             swipe:swipeOffsetLeft="[dimension]"
             swipe:swipeOffsetRight="[dimension]"
+			swipe:swipeOffset="[integer]"
             />
 ```
 
@@ -43,6 +69,7 @@ If you decide to use SwipeListView as a view, you can define it in your xml layo
 * `swipeAnimationTime` - item drop animation time. Default: android configuration
 * `swipeOffsetLeft` - left offset
 * `swipeOffsetRight` - right offset
+* `swipeOffset` - Offset Threshold for trigger the swap : Default : 2 
 
 # License
 
